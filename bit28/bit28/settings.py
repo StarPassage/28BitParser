@@ -50,15 +50,18 @@ NEWSPIDER_MODULE = 'bit28.spiders'
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
 #    'bit28.middlewares.Bit28DownloaderMiddleware': 543,
-#}
+    'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
+EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
+    'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500,
+}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
@@ -88,3 +91,6 @@ AUTOTHROTTLE_DEBUG = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+## Add Your ScrapeOps API key
+SCRAPEOPS_API_KEY = 'cdc2c216-01e0-4dc7-b9ad-599aaa6b72b0'
