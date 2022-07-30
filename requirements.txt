@@ -1,0 +1,5 @@
+itemadapter==0.6.0
+pandas==1.4.3
+pymongo==4.2.0
+Scrapy==2.6.2
+setuptools==57.0.0
